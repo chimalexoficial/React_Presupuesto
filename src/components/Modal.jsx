@@ -3,7 +3,7 @@ import CerrarBtn from '../img/cerrar.svg';
 import { Mensaje } from './Mensaje';
 
 
-const Modal = ({ setModal, animarModal, setAnimarModal, guardarGasto }) => {
+const Modal = ({ setModal, animarModal, setAnimarModal, guardarGasto, generarId }) => {
 
     const [nombre, setNombre] = useState('');
     const [cantidad, setCantidad] = useState('');
@@ -30,8 +30,8 @@ const Modal = ({ setModal, animarModal, setAnimarModal, guardarGasto }) => {
 
             return;
         }
-
-        guardarGasto({ nombre, cantidad, categoria });
+        const id = generarId();
+        guardarGasto({ id, nombre, cantidad, categoria });
     }
 
     return (
